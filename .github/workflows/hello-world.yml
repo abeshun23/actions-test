@@ -1,0 +1,19 @@
+name: GitHub Actions Test
+# 実行のタイミング：mainブランチにコードが送られた（pushされた）時
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  # ジョブの名前（任意）
+  say-hello:
+    # 実行環境：最新のUbuntu（Linux）を使用
+    runs-on: ubuntu-latest
+
+    steps:
+      # おまじない：リポジトリのファイルをActions環境にコピーする
+      - uses: actions/checkout@v4
+
+      # 実際に実行するコマンド
+      - name: Run a greeting
+        run: echo "WindowsからGitHub Actionsの起動に成功しました！"
